@@ -1,0 +1,313 @@
+* {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+*:focus {
+  outline: none;
+}
+
+:root {
+  --border-color: rgba(155, 155, 155, 0.5);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(327deg, #3e3c70, #795ab7);
+  background-position: 0% -75%;
+  background-repeat: no-repeat;
+  background-size: 400% 400%;
+
+  -webkit-animation: AnimationBodyBackground 30s ease infinite;
+  -moz-animation: AnimationBodyBackground 30s ease infinite;
+  animation: AnimationBodyBackground 30s ease infinite;
+}
+
+@-webkit-keyframes AnimationBodyBackground {
+  0%{background-position:9% 0%}
+  50%{background-position:92% 100%}
+  100%{background-position:9% 0%}
+}
+@-moz-keyframes AnimationBodyBackground {
+  0%{background-position:9% 0%}
+  50%{background-position:92% 100%}
+  100%{background-position:9% 0%}
+}
+@keyframes AnimationBodyBackground {
+  0%{background-position:9% 0%}
+  50%{background-position:92% 100%}
+  100%{background-position:9% 0%}
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#centered {
+  margin: auto;
+  width: 475px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+@media screen and (max-width: 686px) {
+  #centered {
+    width: 90vw;
+    height: 80vh;
+  }
+}
+
+.block {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  background-color: whitesmoke;
+  border-radius: 4px;
+  box-shadow: 0px 0px 14px rgba(25, 25, 25, .5);
+}
+
+#header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+#header h1 {
+  margin-top: .5em;
+  margin-bottom: .5em;
+  color: whitesmoke;
+  font-size: 4vh;
+  font-weight: 400;
+}
+
+#form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1em;
+}
+#form input {
+  width: -webkit-fill-available;
+  width: -moz-available;
+  border: none;
+  border-bottom: 2px solid rgba(45, 45, 45, 0.25);
+  padding-top: 0.25em;
+  padding-bottom: 0.5em;
+  background: none;
+  font-size: 2vh;
+}
+#form button {
+  border: none;
+    font-size: 2vh;
+    font-weight: 400;
+    padding-left: 1em;
+    padding-right: 1em;
+    cursor: pointer;
+    background-color: transparent;
+}
+#form button:hover {
+  background-color: rgb(225, 225, 225);
+}
+
+#list {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#list #items {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-height: 50vh;
+  overflow: auto;
+}
+#list #items .item {
+  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-color);
+}
+#list #items .item .status .status_btn {
+  cursor: pointer;
+  position: relative;
+  border: none;
+  background: linear-gradient(324deg, #312f96, #e225c3);
+  height: 24px;
+  width: 24px;
+  border-radius: 100%;
+  -webkit-animation: AnimationButtonStatus 22s ease infinite;
+    -moz-animation: AnimationButtonStatus 22s ease infinite;
+    animation: AnimationButtonStatus 22s ease infinite
+}
+@-webkit-keyframes AnimationButtonStatus {
+  0%{background-position:0% 7%}
+  50%{background-position:100% 94%}
+  100%{background-position:0% 7%}
+}
+@-moz-keyframes AnimationButtonStatus {
+  0%{background-position:0% 7%}
+  50%{background-position:100% 94%}
+  100%{background-position:0% 7%}
+}
+@keyframes AnimationButtonStatus {
+  0%{background-position:0% 7%}
+  50%{background-position:100% 94%}
+  100%{background-position:0% 7%}
+}
+#list #items .item .status .status_btn.ACTIVE::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  border-radius: 100%;
+  background-color: whitesmoke;
+}
+#list #items .item .status .status_btn.COMPLETE::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 22.5%;
+  rotate: 45deg;
+  transform: translate(10%, 10%);
+  width: 25%;
+  height: 12.5%;
+  border-radius: 4px;
+  background-color: whitesmoke;
+}
+#list #items .item .status .status_btn.COMPLETE::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 45%;
+  left: 25%;
+  rotate: -45deg;
+  transform: translate(10%, 10%);
+  width: 55%;
+  height: 12.5%;
+  border-radius: 4px;
+  background-color: whitesmoke;
+}
+#list #items .item .content {
+  display: flex;
+  margin-left: 1em;
+  margin-right: auto;
+}
+#list #items .item .content input {
+  padding: 0.5em;
+    background: transparent;
+    border: none;
+    border-bottom: 2.5px solid rgba(25, 25, 25, 0.25);
+    color: rgb(25, 25, 255);
+}
+#list #items .item .content span {
+  margin: auto;
+}
+#list #items .item.COMPLETE .content span {
+  color: rgb(125, 125, 125);
+  text-decoration: line-through;
+}
+
+#list #items .item .edit,
+#list #items .item .delete {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#list #items .item .edit button,
+#list #items .item .delete button {
+  margin: auto;
+}
+
+#list #items .item .edit {
+  margin-right: 1em;
+}
+
+#list #items .item .edit button {
+  position: relative;
+  height: 24px;
+  cursor: pointer;
+}
+
+#list #items .item .delete button {
+  position: relative;
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+#list #items .item .delete button span {
+  position: absolute;
+  display: block;
+  background-color: rgb(45, 45, 45);
+  width: 90%;
+  height: 5%;
+}
+#list #items .item .delete button span:first-child {
+  top: 50%;
+  left: 5%;
+  rotate: 45deg;
+}
+#list #items .item .delete button span:last-child {
+  top: 50%;
+  left: 5%;
+  rotate: -45deg;
+}
+
+#list #toolbar {
+  padding: 1em;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 1.75vh;
+}
+#list #toolbar button {
+  font-size: 1.75vh;
+}
+#list #toolbar #items-left {
+  color: rgba(35, 35, 35, .5)
+}
+#list #toolbar #filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  gap: 1em;
+}
+#list #toolbar #filters .btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 600;
+}
+#list #toolbar #filters .btn.active {
+  color: blueviolet;
+}
+#list #toolbar #filters .btn:hover {
+  color: rgba(15, 15, 15, .75);
+}
+#list #toolbar #clear button {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+@media screen and (max-width: 686px) {
+
+  #list {
+    height: inherit;
+  }
+}
