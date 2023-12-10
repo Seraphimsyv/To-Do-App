@@ -2,7 +2,7 @@
 
 This is a simple to-do application developed using React and TypeScript.
 
-To view the deployed application, visit [To-Do App](https://seraphimsyv.github.io/Calculator-App-Deploy).
+To view the deployed application, visit [To-Do App](https://seraphimsyv.github.io/To-Do-App-Deploy).
 
 ## Running the Application
 
